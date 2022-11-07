@@ -5,6 +5,8 @@ import 'package:sharedapps/home_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyLoginPage(),
+      home: const MyLoginPage(),
     );
   }
 }
@@ -36,13 +38,11 @@ class _MyLoginPageState extends State<MyLoginPage> {
     check_if_already_login();
   }
 
-  // ignore: non_constant_identifier_names
   void check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata.getBool('login') ?? true);
 
     if (newuser == false) {
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const MyDashboard()));
     }
@@ -50,7 +50,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     username_controller.dispose();
     password_controller.dispose();
     super.dispose();
