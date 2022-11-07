@@ -6,11 +6,11 @@ class MyDashboard extends StatefulWidget {
   const MyDashboard({super.key});
 
   @override
-
-  _MyDashboardState createState() => _MyDashboardState();
+  State<MyDashboard> createState() => _MyDashboardState();
 }
 
 class _MyDashboardState extends State<MyDashboard> {
+  @override
   late SharedPreferences logindata;
   String? username;
 
