@@ -52,7 +52,7 @@ class _MyDashboardState extends State<MyDashboard> {
               onPressed: () {
                 logindata.setBool('login', true);
                 Navigator.pushReplacement(context,
-                    new MaterialPageRoute(builder: (context) => MyLoginPage()));
+                    MaterialPageRoute(builder: (context) => MyLoginPage()));
               },
               child: const Text('LogOut'),
             )

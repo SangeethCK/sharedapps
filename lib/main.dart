@@ -35,14 +35,15 @@ class _MyLoginPageState extends State<MyLoginPage> {
     check_if_already_login();
   }
 
+  // ignore: non_constant_identifier_names
   void check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata.getBool('login') ?? true);
 
-    print(newuser);
     if (newuser == false) {
-      Navigator.pushReplacement(
-          context, new MaterialPageRoute(builder: (context) => MyDashboard()));
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const MyDashboard()));
     }
   }
 
@@ -97,11 +98,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
               onPressed: () {
                 String username = username_controller.text;
                 String password = password_controller.text;
-                if (username != '' && password != '') {
+                if (username == 'test@gmail.com' && password == '123456789') {
                   logindata.setBool('login', false);
                   logindata.setString('username', username);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDashboard()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyDashboard()));
                 }
               },
               child: const Text("Log-In"),
