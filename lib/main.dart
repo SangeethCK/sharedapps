@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyLoginPage extends StatefulWidget {
+  const MyLoginPage({super.key});
   @override
-  _MyLoginPageState createState() => _MyLoginPageState();
+  State<MyLoginPage> createState() => _MyLoginPageState();
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
